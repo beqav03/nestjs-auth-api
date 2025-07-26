@@ -6,12 +6,14 @@ import { UsersService } from './users.service';
 import { UsersRepository } from './users.repository';
 import { AuditLogModule } from 'src/audit/audit-log.module';
 import { OtpsModule } from 'src/otp/otp.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
         TypeOrmModule.forFeature([User]),
         AuditLogModule,
-        OtpsModule
+        OtpsModule,
+        JwtModule,
     ],
     controllers: [UsersController],
     providers: [UsersService, UsersRepository],
